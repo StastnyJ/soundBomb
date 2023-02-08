@@ -48,9 +48,18 @@ void setup() {
 
 void loop() {
   if (songProgress >= SONG_LENGTH) {
+    digitalWrite(LED_PIN, LOW);
+    for (int i = 0; i < 5; i++) {
+      display.clear();
+      display.display();
+      delay(400);
+      display.fillRect(0, 0, 128, 64);
+      display.display();
+      delay(200);
+    }
     display.clear();
     display.display();
-    digitalWrite(LED_PIN, LOW);
+    delay(999999999);
   } else {
     digitalWrite(LED_PIN, ledStatus);
     for (int actToneIdx = 0; actToneIdx < TONES_BATCH_SIZE; actToneIdx++) {
@@ -74,6 +83,7 @@ void loop() {
       toneToString(tone, toneString);
       if (nextToneDeadline < millis()) {
         songProgress = 0;
+        relativeProgress = 0;
       }
       if (abs(tone - song[songProgress]) <= SONG_TOLERANCE) {
         songProgress++;
@@ -120,6 +130,6 @@ void updateLED() {
 void redrawDisplay() {
   display.clear();
   display.drawString(50, 20, toneString);
-  display.drawProgressBar(0, 50, 125, 10, relativeProgress);
+  display.drawProgressBar(2, 50, 124, 10, relativeProgress);
   display.display();
 }
