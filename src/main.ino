@@ -17,8 +17,16 @@
 #define LED_ON_TIME 200     // ms
 #define LED_OFF_TIME 800    // ms
 
-#define SONG_LENGTH 19
-int song[SONG_LENGTH] = {C5, E5, G5, C5, E5, G5, E5, D5, E5, F5, D5, E5, D5, E5, F5, D5, E5, D5, C5};
+// Ovcaci
+// #define SONG_LENGTH 19
+// int song[SONG_LENGTH] = {C5, E5, G5, C5, E5, G5, E5, D5, E5, F5, D5, E5, D5, E5, F5, D5, E5, D5, C5};
+// Kocka leze dirou
+#define SONG_LENGTH 17
+int song[SONG_LENGTH] = {C5, D5, E5, F5, G5, A5, G5, A5, G5, F5, E5, D5, G5, F5, E5, D5, C5};
+// Bezela ovecka
+// #define SONG_LENGTH 13
+// int song[SONG_LENGTH] = {G5, A5, B5, C5, B5, A5, B5, A5, G5, A5, B5, A5, G5};
+
 int songProgress = 0;
 unsigned int relativeProgress = 0;
 unsigned long nextToneDeadline = 0;
